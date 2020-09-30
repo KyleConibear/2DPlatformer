@@ -1,0 +1,946 @@
+fileFormatVersion: 2
+guid: 2a0315a3453231d4197014fff0abd6b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5844412429018813878
+    second: big-crate
+  - first:
+      213: -5362426092667819870
+    second: block-big
+  - first:
+      213: 1913240228536503722
+    second: block
+  - first:
+      213: -6232636625079679930
+    second: bush
+  - first:
+      213: 6457011392761765372
+    second: crank-down
+  - first:
+      213: -1568867313766131076
+    second: crank-up
+  - first:
+      213: -4990102724843702750
+    second: crate
+  - first:
+      213: -7639116950857379750
+    second: door
+  - first:
+      213: -1044340370403021452
+    second: face-block
+  - first:
+      213: 3886477170696509768
+    second: house
+  - first:
+      213: -364982775899832599
+    second: platform-long
+  - first:
+      213: 5401209469563074041
+    second: rock
+  - first:
+      213: -6351676229707231489
+    second: shrooms
+  - first:
+      213: 182591843727494170
+    second: sign
+  - first:
+      213: 1825427968760619815
+    second: skulls
+  - first:
+      213: 6338905587553384064
+    second: small-platform
+  - first:
+      213: -8075131982927899356
+    second: spike-skull
+  - first:
+      213: 9203311826801364501
+    second: spikes-top
+  - first:
+      213: 1745804454675109988
+    second: spikes
+  - first:
+      213: -4723759821525128685
+    second: tree
+  - first:
+      213: -8704095385293006886
+    second: SunnyLandProps_0
+  - first:
+      213: 4727786173801674021
+    second: SunnyLandProps_1
+  - first:
+      213: -6139663881321728356
+    second: SunnyLandProps_2
+  - first:
+      213: -8058448016399988811
+    second: SunnyLandProps_3
+  - first:
+      213: 3710837123828288910
+    second: SunnyLandProps_4
+  - first:
+      213: 2503179681572033604
+    second: SunnyLandProps_5
+  - first:
+      213: -2044985219245368574
+    second: SunnyLandProps_6
+  - first:
+      213: 3306284595535046172
+    second: SunnyLandProps_7
+  - first:
+      213: 4671584119314595916
+    second: SunnyLandProps_8
+  - first:
+      213: -8142933346454683678
+    second: SunnyLandProps_9
+  - first:
+      213: -7938419168506693799
+    second: SunnyLandProps_10
+  - first:
+      213: -421220583738781717
+    second: SunnyLandProps_11
+  - first:
+      213: 3180040873207750365
+    second: SunnyLandProps_12
+  - first:
+      213: -1760575775834664946
+    second: SunnyLandProps_13
+  - first:
+      213: 8779325402471165511
+    second: SunnyLandProps_14
+  - first:
+      213: 6875270493928862532
+    second: SunnyLandProps_15
+  - first:
+      213: 6722840241505550117
+    second: SunnyLandProps_16
+  - first:
+      213: -5504012978620680290
+    second: SunnyLandProps_17
+  - first:
+      213: -1358321428387127114
+    second: SunnyLandProps_18
+  - first:
+      213: -4106908532782737917
+    second: SunnyLandProps_19
+  - first:
+      213: -4979265256453063017
+    second: SunnyLandProps_20
+  - first:
+      213: -8501388714909192789
+    second: SunnyLandProps_21
+  - first:
+      213: -1682872686866414907
+    second: SunnyLandProps_22
+  - first:
+      213: -2256955780545544139
+    second: SunnyLandProps_23
+  - first:
+      213: 1509946921535208169
+    second: SunnyLandProps_24
+  - first:
+      213: 3437656158522508771
+    second: SunnyLandProps_25
+  - first:
+      213: 730566508489175706
+    second: SunnyLandProps_26
+  - first:
+      213: -6723674298791423492
+    second: SunnyLandProps_27
+  - first:
+      213: -6788627561933823686
+    second: SunnyLandProps_28
+  - first:
+      213: 4807069266663420180
+    second: SunnyLandProps_29
+  - first:
+      213: -931790742356718287
+    second: SunnyLandProps_30
+  - first:
+      213: -8193435923017334794
+    second: SunnyLandProps_31
+  - first:
+      213: -1840761808185961411
+    second: SunnyLandProps_32
+  - first:
+      213: -1778115052446304652
+    second: SunnyLandProps_33
+  - first:
+      213: -2610421066821030231
+    second: SunnyLandProps_34
+  - first:
+      213: 7630189357826495194
+    second: SunnyLandProps_35
+  - first:
+      213: -5485135523200255681
+    second: SunnyLandProps_36
+  - first:
+      213: -4988999216888697410
+    second: SunnyLandProps_37
+  - first:
+      213: 1436537057506001146
+    second: SunnyLandProps_38
+  - first:
+      213: 2718467378492191843
+    second: SunnyLandProps_39
+  - first:
+      213: -6192829577073208344
+    second: SunnyLandProps_40
+  - first:
+      213: 4351525089969074520
+    second: SunnyLandProps_41
+  - first:
+      213: -3069765413340786839
+    second: SunnyLandProps_42
+  - first:
+      213: 1569637383359080585
+    second: SunnyLandProps_43
+  - first:
+      213: 2567389724888636916
+    second: SunnyLandProps_44
+  - first:
+      213: -4762825937175873774
+    second: SunnyLandProps_45
+  - first:
+      213: -901298520455903145
+    second: SunnyLandProps_46
+  - first:
+      213: -4851764573088103828
+    second: SunnyLandProps_47
+  - first:
+      213: -1289893062663279140
+    second: SunnyLandProps_48
+  - first:
+      213: -3551828973546183030
+    second: SunnyLandProps_49
+  - first:
+      213: -7836363471449246115
+    second: SunnyLandProps_50
+  - first:
+      213: -8156428136386099641
+    second: SunnyLandProps_51
+  - first:
+      213: -2295759466738604708
+    second: SunnyLandProps_52
+  - first:
+      213: 3819090724640037664
+    second: SunnyLandProps_53
+  - first:
+      213: -4310568137012140503
+    second: SunnyLandProps_54
+  - first:
+      213: -6953593975844528517
+    second: SunnyLandProps_55
+  - first:
+      213: 5160465338723708478
+    second: SunnyLandProps_56
+  - first:
+      213: 1155207186926275968
+    second: SunnyLandProps_57
+  - first:
+      213: 4947700604977593477
+    second: SunnyLandProps_58
+  - first:
+      213: -4495589973353475847
+    second: SunnyLandProps_59
+  - first:
+      213: -5202768970415200118
+    second: SunnyLandProps_60
+  - first:
+      213: -5461541684074438151
+    second: SunnyLandProps_61
+  - first:
+      213: -6661492571541135604
+    second: SunnyLandProps_62
+  - first:
+      213: -6321985597713638378
+    second: SunnyLandProps_63
+  - first:
+      213: -5857075996434315466
+    second: SunnyLandProps_64
+  - first:
+      213: -1900160442057102759
+    second: SunnyLandProps_65
+  - first:
+      213: 4947978807684680248
+    second: SunnyLandProps_66
+  - first:
+      213: 1668359180281405365
+    second: SunnyLandProps_67
+  - first:
+      213: -491895013305241041
+    second: SunnyLandProps_68
+  - first:
+      213: -5895395182477277723
+    second: SunnyLandProps_69
+  - first:
+      213: -8158034866166749094
+    second: SunnyLandProps_70
+  - first:
+      213: -6929624495325542404
+    second: SunnyLandProps_71
+  - first:
+      213: -4593211012342047332
+    second: SunnyLandProps_72
+  - first:
+      213: 2424501170268453057
+    second: SunnyLandProps_73
+  - first:
+      213: 7222319298207822332
+    second: SunnyLandProps_74
+  - first:
+      213: -7611605487994520004
+    second: SunnyLandProps_75
+  - first:
+      213: 5938320445787684552
+    second: SunnyLandProps_76
+  - first:
+      213: 6899359941553498359
+    second: SunnyLandProps_77
+  - first:
+      213: -6843342696254631776
+    second: SunnyLandProps_78
+  - first:
+      213: 2590037653530604181
+    second: SunnyLandProps_79
+  - first:
+      213: -3011436459277566443
+    second: SunnyLandProps_80
+  - first:
+      213: 8365077492759673008
+    second: SunnyLandProps_81
+  - first:
+      213: -9040336942146779702
+    second: SunnyLandProps_82
+  - first:
+      213: 2306376298109701243
+    second: SunnyLandProps_83
+  - first:
+      213: -5925037079347229470
+    second: SunnyLandProps_84
+  - first:
+      213: 282719114082537404
+    second: SunnyLandProps_85
+  - first:
+      213: -4517364668386497581
+    second: SunnyLandProps_86
+  - first:
+      213: -4849649016678475134
+    second: SunnyLandProps_87
+  - first:
+      213: 4863470296697364200
+    second: SunnyLandProps_88
+  - first:
+      213: 2175269829208321228
+    second: SunnyLandProps_89
+  - first:
+      213: 6008587624396537963
+    second: SunnyLandProps_90
+  - first:
+      213: -9118590202510770490
+    second: SunnyLandProps_91
+  - first:
+      213: 8760349747057088851
+    second: SunnyLandProps_92
+  - first:
+      213: 9219338748457480502
+    second: SunnyLandProps_93
+  - first:
+      213: -5643244931680984527
+    second: SunnyLandProps_94
+  - first:
+      213: 5914499588139607248
+    second: SunnyLandProps_95
+  - first:
+      213: -6515411790691356399
+    second: SunnyLandProps_96
+  - first:
+      213: 3873842585220781400
+    second: SunnyLandProps_97
+  - first:
+      213: -2655154672339012578
+    second: SunnyLandProps_98
+  - first:
+      213: 4638328461474039002
+    second: SunnyLandProps_99
+  - first:
+      213: -63836428982202711
+    second: SunnyLandProps_100
+  - first:
+      213: 7019061090087469515
+    second: SunnyLandProps_101
+  - first:
+      213: -7267082401100065245
+    second: SunnyLandProps_102
+  - first:
+      213: -8656607128987039605
+    second: SunnyLandProps_103
+  - first:
+      213: 9043636586353084046
+    second: SunnyLandProps_104
+  - first:
+      213: 7496582736369331646
+    second: SunnyLandProps_105
+  - first:
+      213: 1425512769629386737
+    second: SunnyLandProps_106
+  - first:
+      213: 794118519137322712
+    second: SunnyLandProps_107
+  - first:
+      213: -4838729860274622898
+    second: SunnyLandProps_108
+  - first:
+      213: -7584321794664622940
+    second: SunnyLandProps_109
+  - first:
+      213: 7227470846144938760
+    second: SunnyLandProps_110
+  - first:
+      213: -3571987657487439562
+    second: SunnyLandProps_111
+  - first:
+      213: 1919614863489177572
+    second: SunnyLandProps_112
+  - first:
+      213: 6952428005693470704
+    second: SunnyLandProps_113
+  - first:
+      213: 2618886853728499510
+    second: SunnyLandProps_114
+  - first:
+      213: 450988492587217777
+    second: SunnyLandProps_115
+  - first:
+      213: -6691306062288510252
+    second: SunnyLandProps_116
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: big-crate
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 23
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4aa47f5cd974eea0800000000000000
+      internalID: -5844412429018813878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block-big
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 23
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8af3c41e5d495b0800000000000000
+      internalID: -5362426092667819870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 7
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aadc7efd9d13d8a10800000000000000
+      internalID: 1913240228536503722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bush
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 228
+        width: 46
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644490ce20a3189a0800000000000000
+      internalID: -6232636625079679930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crank-down
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 245
+        width: 19
+        height: 11
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0.72727275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd1738a6a9eb9950800000000000000
+      internalID: 6457011392761765372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crank-up
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 7
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.3529412, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a9f378d734a3ae0800000000000000
+      internalID: -1568867313766131076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crate
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 7
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2267bfca2089fbab0800000000000000
+      internalID: -4990102724843702750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a501b726b976cf590800000000000000
+      internalID: -7639116950857379750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face-block
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 23
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d278d57f1c181f0800000000000000
+      internalID: -1044340370403021452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: house
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 87
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849d703356a8fe530800000000000000
+      internalID: 3886477170696509768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platform-long
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 6
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eeba5d59125feaf0800000000000000
+      internalID: -364982775899832599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 8
+        width: 28
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f578ce4563f4fa40800000000000000
+      internalID: 5401209469563074041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shrooms
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 219
+        width: 16
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53571427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe02082f105ad7a0800000000000000
+      internalID: -6351676229707231489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sign
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1cc2408052b88200800000000000000
+      internalID: 182591843727494170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skulls
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 246
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7232a09e019355910800000000000000
+      internalID: 1825427968760619815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small-platform
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 7
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086bbd20c0158f750800000000000000
+      internalID: 6338905587553384064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spike-skull
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 233
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 425df23de3e5fef80800000000000000
+      internalID: -8075131982927899356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikes-top
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 237
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e85a1685bb8bf70800000000000000
+      internalID: 9203311826801364501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikes
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 246
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4685430e6e75a3810800000000000000
+      internalID: 1745804454675109988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 105
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a6bb94875d17eb0800000000000000
+      internalID: -4723759821525128685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
