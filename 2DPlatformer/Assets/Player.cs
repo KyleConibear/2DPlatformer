@@ -4,34 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] private Rigidbody2D rigidbody2D = null;
+    [SerializeField] private float force = 5;
+    [SerializeField] private float xMove = 0;
+
+    private void Awake()
     {
-        Debug.Log("OnCollisionEnter2D");
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void Update()
     {
-        Debug.Log("OnCollisionStay2D");
+        xMove = Input.GetAxis("Horizontal");
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        Debug.Log("OnCollisionExit2D");
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("OnTriggerEnter2D");
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("OnTriggerEnter2D");
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("OnTriggerEnter2D");
+        rigidbody2D.velocity = new Vector2(xMove * force * Time.deltaTime, 0);
     }
 }
