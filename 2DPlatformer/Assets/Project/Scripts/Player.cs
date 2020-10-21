@@ -25,6 +25,19 @@ public class Player : MonoBehaviour
     [Range(5, 25)]
     [SerializeField] private float jumpHeight = 15;
 
+    /// <summary>
+    /// Keeps track of whether the player is currently holding the spacebar
+    /// </summary>
+    private bool isJumping = false;
+
+    [Tooltip("The amount gravity is multiplied by when falling.")]
+    [Range(1, 3)]
+    [SerializeField] private float fallMultiplier = 2.0f; // This is used for a full held high jump
+
+    [Tooltip("If the player releases the jump button before the jumps peak height gravity will be multiplied to quicken descent.")]
+    [Range(1, 2)]
+    [SerializeField] private float lowJumpGravityMultiplier = 1.5f; // This is used for a low tap jump
+
     [Range(0.1f, 1)]
     [SerializeField] private float groundCheckDepth = 0.5f;
 
@@ -39,6 +52,9 @@ public class Player : MonoBehaviour
         Falling = 3
     }
 
+    private int gemCount = 0;
+    private int cherryCount = 0;
+
     private void Move(float xInput, float sprintMultiplier = 1.0f)
     {
         // Move character
@@ -48,10 +64,30 @@ public class Player : MonoBehaviour
     {
         if (this.IsGrounded())
         {
-            Debug.Log("Jump");
+            // Debug.Log("Jump");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpHeight);
         }
     }
+
+    /// <summary>
+    /// Makes the player fall faster
+    /// </summary>
+    private void FasterFall()
+    {
+        // We are jumping up
+        if (this.rigidbody2D.velocity.y > Mathf.Epsilon && this.isJumping == false) // The spacebar has been released
+        {
+            this.rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * this.lowJumpGravityMultiplier * Time.deltaTime;
+        }
+        // Check if character is falling
+        else if (this.rigidbody2D.velocity.y < Mathf.Epsilon)
+        {
+            Log(this.isLogging, Type.Message, "Character is falling.");
+            // Physics2D.gravity.y = -9.81
+            this.rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * this.fallMultiplier * Time.deltaTime;
+        }
+    }
+
     private void SetState(State state)
     {
         this.state = state;
@@ -133,16 +169,22 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) // GetKeyDown happens once. -> KeyCode.Space is the spacebar
         {
+            isJumping = true;
             Jump();
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
         }
     }
     private void LateUpdate()
     {
         StateObserver();
+        FasterFall();
     }
     private void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             this.Move(Input.GetAxis("Horizontal"), sprintMultiplier);
             animator.SetFloat("sprintMultiplier", sprintMultiplier);
@@ -151,7 +193,27 @@ public class Player : MonoBehaviour
         {
             this.Move(Input.GetAxis("Horizontal")); // sprintMultiplier == 1.0f
             animator.SetFloat("sprintMultiplier", 1.0f);
-        }        
+        }
+    }
+
+    // This will be called when our player enters a 2DCollider
+    private void OnTriggerEnter2D(Collider2D collision) // collision is the other GameObject
+    {
+        // This is a gem
+        if (collision.CompareTag("Gem"))
+        {
+            this.gemCount++;
+            Destroy(collision.gameObject); // This removes the collision GameObject from the Scene
+            Debug.Log($"gemCount: {gemCount}");
+        }
+        else if (collision.CompareTag("Cherry"))
+        {
+            this.cherryCount++; // Adding to myself
+            Destroy(collision.gameObject);
+            Debug.Log($"cherryCount: {cherryCount}");
+        }
+
+        Debug.Log(collision);
     }
 
     #endregion
