@@ -60,9 +60,9 @@ public class Player : MonoBehaviour
         // Move character
         rigidbody2D.velocity = new Vector2((xInput * (baseForce * sprintMultiplier)), rigidbody2D.velocity.y);
     }
-    private void Jump() // Passing variable into method
+    private void Jump(bool forced = false) // Passing variable into method
     {
-        if (this.IsGrounded())
+        if (this.IsGrounded() || forced) // or statement ||
         {
             // Debug.Log("Jump");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpHeight);
@@ -214,6 +214,15 @@ public class Player : MonoBehaviour
         }
 
         Debug.Log(collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.GetComponentInParent<Enemy>())
+        {
+            this.Jump(true);
+            Destroy(collision.transform.parent.gameObject);
+        }
     }
 
     #endregion
