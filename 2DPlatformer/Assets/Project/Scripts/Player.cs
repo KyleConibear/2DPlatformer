@@ -8,13 +8,15 @@ using static KyleConibear.Logger;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(SceneChanger))]
 public class Player : MonoBehaviour
 {
     public bool isLogging = false;
 
     private Animator animator = null;
-    private Rigidbody2D rigidbody2D = null;
+    private new Rigidbody2D rigidbody2D = null;
     private BoxCollider2D boxCollider2D = null;
+    private SceneChanger sceneChanger = null;
 
     [Range(5, 25)]
     [SerializeField] private float baseForce = 6;
@@ -24,6 +26,8 @@ public class Player : MonoBehaviour
 
     [Range(5, 25)]
     [SerializeField] private float jumpHeight = 15;
+
+    [SerializeField] private float airMoveMultiplier = 0.5f;
 
     /// <summary>
     /// Keeps track of whether the player is currently holding the spacebar
@@ -43,26 +47,37 @@ public class Player : MonoBehaviour
 
     [SerializeField] private LayerMask groundLayerMask;
 
+    private bool isGrounded = false;
+
     private State state = State.Idle;
     public enum State
     {
         Idle = 0,
         Moving = 1,
         Jumping = 2,
-        Falling = 3
+        Falling = 3,
+        Dead = 4
     }
-
-    private int gemCount = 0;
-    private int cherryCount = 0;
 
     private void Move(float xInput, float sprintMultiplier = 1.0f)
     {
-        // Move character
-        rigidbody2D.velocity = new Vector2((xInput * (baseForce * sprintMultiplier)), rigidbody2D.velocity.y);
+        if (LevelManager.instance.IsXPositionWithinLevel(this.transform.position.x + xInput))
+        {
+            float xValue = xInput * (baseForce * sprintMultiplier);
+            if (!this.isGrounded)
+            {
+                if ((rigidbody2D.velocity.x > 0 && xInput < 0) || (rigidbody2D.velocity.x < 0 && xInput > 0)) // Reduce opposite direction of travel while airborne
+                {
+                    xValue *= this.airMoveMultiplier;
+                }
+            }
+            Debug.Log($"xValue: {xValue}");
+            rigidbody2D.velocity = new Vector2(xValue, rigidbody2D.velocity.y);
+        }
     }
     private void Jump(bool forced = false) // Passing variable into method
     {
-        if (this.IsGrounded() || forced) // or statement ||
+        if (this.isGrounded || forced) // or statement ||
         {
             // Debug.Log("Jump");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpHeight);
@@ -75,12 +90,12 @@ public class Player : MonoBehaviour
     private void FasterFall()
     {
         // We are jumping up
-        if (this.rigidbody2D.velocity.y > Mathf.Epsilon && this.isJumping == false) // The spacebar has been released
+        if (this.rigidbody2D.velocity.y > 0 && this.isJumping == false) // The spacebar has been released
         {
             this.rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * this.lowJumpGravityMultiplier * Time.deltaTime;
         }
         // Check if character is falling
-        else if (this.rigidbody2D.velocity.y < Mathf.Epsilon)
+        else if (this.rigidbody2D.velocity.y < 0)
         {
             Log(this.isLogging, Type.Message, "Character is falling.");
             // Physics2D.gravity.y = -9.81
@@ -92,17 +107,23 @@ public class Player : MonoBehaviour
     {
         this.state = state;
         this.animator.SetInteger("state", (int)state);
+
+        if (this.state == State.Dead)
+        {
+            this.rigidbody2D.isKinematic = true; // Fall through floor
+            StartCoroutine(DeathDelay());
+        }
     }
     private bool IsGrounded()
     {
-        bool isGrounded = false;
+        bool tmpGrounded = false;
 
         RaycastHit2D hit = Physics2D.BoxCast(this.boxCollider2D.bounds.center, this.boxCollider2D.bounds.size, 0f, Vector2.down, this.groundCheckDepth, groundLayerMask);
         Color rayColor;
 
-        isGrounded = hit.collider != null;
+        tmpGrounded = hit.collider != null;
 
-        if (isGrounded)
+        if (tmpGrounded)
         {
             rayColor = Color.green;
 
@@ -117,23 +138,23 @@ public class Player : MonoBehaviour
         Debug.DrawRay(this.boxCollider2D.bounds.center - new Vector3(this.boxCollider2D.bounds.extents.x, 0), Vector2.down * (this.boxCollider2D.bounds.extents.y + this.groundCheckDepth), rayColor);
         Debug.DrawRay(this.boxCollider2D.bounds.center - new Vector3(this.boxCollider2D.bounds.extents.x, this.boxCollider2D.bounds.extents.y + this.groundCheckDepth), Vector2.right * (this.boxCollider2D.bounds.extents.x * 2f), rayColor);
 
-        Log(this.isLogging, Type.Message, $"Character {this.name} is grounded = {isGrounded}");
+        Log(this.isLogging, Type.Message, $"Character {this.name} is grounded = {tmpGrounded}");
 
-        return isGrounded;
+        return tmpGrounded;
     }
     private void StateObserver()
     {
-        if (this.IsGrounded())
+        if (this.isGrounded)
         {
             // Set state to update animator
             // Moving to the right
-            if (rigidbody2D.velocity.x > 0) // Mathf.Epsilon is a really tiny float
+            if (rigidbody2D.velocity.x > 0.1f) // Mathf.Epsilon is a really tiny float
             {
                 this.transform.localScale = new Vector3(1, 1, 1);
                 SetState(State.Moving);
             }
             // Moving left
-            else if (rigidbody2D.velocity.x < 0)
+            else if (rigidbody2D.velocity.x < -0.1f)
             {
                 this.transform.localScale = new Vector3(-1, 1, 1);
                 SetState(State.Moving);
@@ -157,13 +178,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(3);
+        this.sceneChanger.SetScene(0); // Return to main menu
+    }
+
     #region MonoBehaviour Methods
 
     private void Awake()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        this.boxCollider2D = GetComponent<BoxCollider2D>();
+        this.animator = GetComponent<Animator>();
+        this.rigidbody2D = GetComponent<Rigidbody2D>();
+        this.sceneChanger = GetComponent<SceneChanger>();
     }
     private void Update()
     {
@@ -184,44 +212,59 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        this.isGrounded = IsGrounded();
+
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f) // Abs convets negative number to positive
         {
-            this.Move(Input.GetAxis("Horizontal"), sprintMultiplier);
-            animator.SetFloat("sprintMultiplier", sprintMultiplier);
-        }
-        else
-        {
-            this.Move(Input.GetAxis("Horizontal")); // sprintMultiplier == 1.0f
-            animator.SetFloat("sprintMultiplier", 1.0f);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                this.Move(Input.GetAxis("Horizontal"), sprintMultiplier);
+                animator.SetFloat("sprintMultiplier", sprintMultiplier);
+            }
+            else
+            {
+                this.Move(Input.GetAxis("Horizontal")); // sprintMultiplier == 1.0f
+                animator.SetFloat("sprintMultiplier", 1.0f);
+            }
         }
     }
 
     // This will be called when our player enters a 2DCollider
     private void OnTriggerEnter2D(Collider2D collision) // collision is the other GameObject
     {
+        PickUp pickUp = collision.GetComponent<PickUp>();
         // This is a gem
-        if (collision.CompareTag("Gem"))
+        if (pickUp)
         {
-            this.gemCount++;
-            Destroy(collision.gameObject); // This removes the collision GameObject from the Scene
-            Debug.Log($"gemCount: {gemCount}");
-        }
-        else if (collision.CompareTag("Cherry"))
-        {
-            this.cherryCount++; // Adding to myself
-            Destroy(collision.gameObject);
-            Debug.Log($"cherryCount: {cherryCount}");
-        }
+            switch (pickUp.type)
+            {
+                case PickUp.Type.Gem:
+                    LevelManager.instance.IncrementGemCount();
+                    break;
 
-        Debug.Log(collision);
+                case PickUp.Type.Cherry:
+                    LevelManager.instance.IncrementCherryCount();
+                    break;
+            }
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.GetComponentInParent<Enemy>())
         {
-            this.Jump(true);
-            Destroy(collision.transform.parent.gameObject);
+            // If falling, kill enemy
+            if (this.state == State.Falling)
+            {
+                this.Jump(true);
+                Destroy(collision.transform.parent.gameObject);
+            }
+            // else die
+            else
+            {
+                this.SetState(State.Dead);
+            }
         }
     }
 
