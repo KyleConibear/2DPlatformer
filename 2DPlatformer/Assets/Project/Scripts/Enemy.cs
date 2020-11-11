@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour // Enemy is now base class
 {
-    [SerializeField] private GameObject actor = null;
-    [SerializeField] private float movementSpeed = 1.0f;
-    [SerializeField] private Transform[] movePositions = new Transform[0];
-    [SerializeField] private Vector2 movementPauseRange = new Vector3(0.1f, 1);
+    [SerializeField] protected GameObject actor = null;
+    [SerializeField] protected float movementSpeed = 1.0f;
+    [SerializeField] protected Transform[] movePositions = new Transform[0];
+    [SerializeField] protected Vector2 movementPauseRange = new Vector3(0.1f, 1);
     private int moveIndex = 0;
     private bool isMovingForward = true;
     private bool canMove = true;
+
+    protected virtual void Move()
+    {
+        if (canMove)
+        {
+            // Moving to target
+            // Translate = which is changing the transform position value
+            this.actor.transform.position = Vector3.MoveTowards(this.actor.transform.position, this.movePositions[moveIndex].position, this.movementSpeed * Time.deltaTime);
+        }
+    }
 
     private void LookAtTarget()
     {
@@ -34,14 +44,15 @@ public class Enemy : MonoBehaviour
         canMove = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (canMove)
-        {
-            // Moving to target
-            this.actor.transform.position = Vector3.MoveTowards(this.actor.transform.position, this.movePositions[moveIndex].position, this.movementSpeed * Time.deltaTime);
-        }        
+        this.actor.transform.position = this.movePositions[0].position;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        this.Move();              
     }
     
     private void LateUpdate()
@@ -52,6 +63,8 @@ public class Enemy : MonoBehaviour
         // Check distance to target
         if (Vector3.Distance(this.actor.transform.position, this.movePositions[moveIndex].position) < Mathf.Epsilon)
         {
+            ArrivedAtDestination();
+
             StartCoroutine(ToggleCanMove());
 
             // Go to next move position
@@ -77,4 +90,6 @@ public class Enemy : MonoBehaviour
             // this.moveIndex = this.moveIndex % this.movePositions.Length; // If index exceeds count set it to the beginning 0
         }
     }
+
+    protected abstract void ArrivedAtDestination(); // Signature // Within base class has no body or functionality but is required by inherited classes
 }

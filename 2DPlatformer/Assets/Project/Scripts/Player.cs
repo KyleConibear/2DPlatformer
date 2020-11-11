@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
 
     private void Move(float xInput, float sprintMultiplier = 1.0f)
     {
+        if (state == State.Dead) // Player has died
+            return; // Code below the return will not run
+
         if (LevelManager.instance.IsXPositionWithinLevel(this.transform.position.x + xInput))
         {
             float xValue = xInput * (baseForce * sprintMultiplier);
@@ -71,13 +74,12 @@ public class Player : MonoBehaviour
                     xValue *= this.airMoveMultiplier;
                 }
             }
-            Debug.Log($"xValue: {xValue}");
             rigidbody2D.velocity = new Vector2(xValue, rigidbody2D.velocity.y);
         }
     }
     private void Jump(bool forced = false) // Passing variable into method
     {
-        if (this.isGrounded || forced) // or statement ||
+        if (state != State.Dead && this.isGrounded || forced) // or statement ||
         {
             // Debug.Log("Jump");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpHeight);
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
 
         if (this.state == State.Dead)
         {
+            this.rigidbody2D.velocity = new Vector2(0, -1);
             this.rigidbody2D.isKinematic = true; // Fall through floor
             StartCoroutine(DeathDelay());
         }
@@ -144,6 +147,9 @@ public class Player : MonoBehaviour
     }
     private void StateObserver()
     {
+        if (state == State.Dead) // Player has died
+            return; // Code below the return will not run
+
         if (this.isGrounded)
         {
             // Set state to update animator
